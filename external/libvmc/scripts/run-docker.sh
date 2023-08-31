@@ -43,6 +43,11 @@ $SUDO docker start "${BUILDENV_CONTAINER_NAME}" > /dev/null 2> /dev/null || {
 	fi
 }
 
+# Run 'apk update' with sudo permissions
+$SUDO docker exec --interactive ${DOCKER_TTY} \
+    --user "${BUILDENV_USER}" \
+    "${BUILDENV_CONTAINER_NAME}" sudo apk update
+
 if [ "$#" -eq  "0" ]; then
 	$SUDO docker exec --interactive ${DOCKER_TTY} \
 		--user "${BUILDENV_USER}" \
