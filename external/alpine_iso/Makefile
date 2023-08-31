@@ -34,6 +34,7 @@ build-local:
 	@echo "Output directory:" $(OUTPUT_DIR)
 	@echo
 	mkdir -p $(OUTPUT_DIR)
+	apk update
 ## add '--repository $(CURRENT_DIR)/packages/extras' for local repository.
 	sh mkimage.sh \
 		--outdir $(OUTPUT_DIR) \
